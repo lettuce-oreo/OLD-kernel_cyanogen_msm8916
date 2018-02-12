@@ -172,6 +172,7 @@ typedef struct sg_fd {		/* holds the state of a file descriptor */
 
 typedef struct sg_device { /* holds the state of each scsi generic device */
 	struct scsi_device *device;
+	wait_queue_head_t open_wait;    /* queue open() when O_EXCL present */
 	struct mutex open_rel_lock;
 	wait_queue_head_t o_excl_wait;	/* queue open() when O_EXCL in use */
 	int sg_tablesize;	/* adapter's max scatter-gather table size */
@@ -585,12 +586,6 @@ sg_write(struct file *filp, const char __user *buf, size_t count, loff_t * ppos)
 	struct sg_header old_hdr;
 	sg_io_hdr_t *hp;
 	unsigned char cmnd[SG_MAX_CDB_SIZE];
-<<<<<<< HEAD
-
-	if (unlikely(segment_eq(get_fs(), KERNEL_DS)))
-		return -EINVAL;
-=======
->>>>>>> 940f61d4fe887c65dc8030140388bf6453321bf9
 
 	if ((!(sfp = (Sg_fd *) filp->private_data)) || (!(sdp = sfp->parentdp)))
 		return -ENXIO;
@@ -1709,14 +1704,7 @@ sg_start_req(Sg_request *srp, unsigned char *cmd)
 		return -ENOMEM;
 	}
 
-<<<<<<< HEAD
 	blk_rq_set_block_pc(rq);
-=======
-	if (hp->cmd_len > BLK_MAX_CDB)
-		rq->cmd = long_cmdp;
-	memcpy(rq->cmd, cmd, hp->cmd_len);
->>>>>>> 940f61d4fe887c65dc8030140388bf6453321bf9
-
 	if (hp->cmd_len > BLK_MAX_CDB)
 		rq->cmd = long_cmdp;
 	memcpy(rq->cmd, cmd, hp->cmd_len);
@@ -2637,15 +2625,6 @@ static void sg_proc_debug_helper(struct seq_file *s, Sg_device * sdp)
 			seq_puts(s, cp);
 			blen = srp->data.bufflen;
 			usg = srp->data.k_use_sg;
-<<<<<<< HEAD
-			seq_puts(s, srp->done ?
-				 ((1 == srp->done) ?  "rcv:" : "fin:")
-				  : "act:");
-=======
-			seq_printf(s, srp->done ?
-				   ((1 == srp->done) ?  "rcv:" : "fin:")
-				   : "act:");
->>>>>>> 940f61d4fe887c65dc8030140388bf6453321bf9
 			seq_printf(s, " id=%d blen=%d",
 				   srp->header.pack_id, blen);
 			if (srp->done)
