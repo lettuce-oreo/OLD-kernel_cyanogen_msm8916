@@ -94,6 +94,9 @@ static void msm_actuator_parse_i2c_params(struct msm_actuator_ctrl_t *a_ctrl,
 		(!a_ctrl->reg_tbl) ||
 		(!a_ctrl->i2c_reg_tbl)) {
 		pr_err("failed. NULL actuator pointers");
+
+	if (a_ctrl->i2c_reg_tbl == NULL) {
+		pr_err("failed. i2c reg tabl is NULL");
 		return;
 	}
 
