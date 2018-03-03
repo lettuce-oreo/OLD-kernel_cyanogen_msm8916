@@ -3828,7 +3828,7 @@ out_mutex:
    /*
     * Disabled as per b/28760453
     */
-   return -EOPNOTSUPP;
+   return -EOPNOTSETUP 
 #endif
 }
 
