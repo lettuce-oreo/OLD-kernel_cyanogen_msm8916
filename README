@@ -1,5 +1,8 @@
-Optimized kernel source for MSM8916 cyanogen devices 
-Based on ThunderStorm Kernel V2.0 | Credits to @Rpingat
+Optimized kernel source for YU Yuphoria (lettuce)
+Can be used for other MSM8916 Cyanogen devices but they'll need to update their defconfigs.
+
+Based on ThunderStorm Kernel V2.0 (initial work i.e. merging LOS trees, CAF 1.2.9_rb1.XX etc, boeffla WL blocker, KCAL)
+Credits to @Rpingat for the initial work.
 
 Linux kernel release 3.10.108 <http://kernel.org/>
 
