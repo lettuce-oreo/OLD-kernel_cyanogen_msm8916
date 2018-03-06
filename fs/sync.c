@@ -24,7 +24,7 @@
 extern bool early_suspend_active;
 extern bool dyn_fsync_active;
 #endif
-bool fsync_enabled = false;
+bool fsync_enabled = true;
 module_param(fsync_enabled, bool, 0755);
 
 >>>>>>> 074aab3dcf0... Added fsync on/off support.
