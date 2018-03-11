@@ -3778,7 +3778,6 @@ typedef struct
    uint32_t                    sta_auth_retries_for_code17;
    uint32_t                    trigger_nullframe_before_hb;
    bool                        force_scc_with_ecsa;
-   uint8_t                     enable_rtt_support;
    uint32_t                    sta_sap_scc_on_dfs_chan;
    uint8_t                     enable_aggr_btc_sco_oui[9];
    uint8_t                     num_buff_aggr_btc_sco;
@@ -3786,7 +3785,6 @@ typedef struct
    bool                        disable_indoor_channel;
    uint32_t                    enable_power_save_offload;
 
->>>>>>> 323d64089f3a... Merge remote-tracking branch 'msm8916/lineage-15.1' into lineage-15.1
 } hdd_config_t;
 
 /*--------------------------------------------------------------------------- 
