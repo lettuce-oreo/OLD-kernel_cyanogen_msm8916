@@ -13961,6 +13961,11 @@ void hdd_softap_sta_disassoc(hdd_adapter_t *pAdapter,v_U8_t *pDestMacAddress)
 
     hddLog( LOGE, "hdd_softap_sta_disassoc:(%pK, false)", (WLAN_HDD_GET_CTX(pAdapter))->pvosContext);
 
+    if (!pSapCtx) {
+        hddLog(LOGE, "sap context is NULL");
+        return ;
+    }
+
     //Ignore request to disassoc bcmc station
     if( pDestMacAddress[0] & 0x1 )
        return;
@@ -14036,12 +14041,11 @@ wlan_hdd_is_GO_power_collapse_allowed (hdd_context_t* pHddCtx)
           return TRUE;
      }
      else
-     {
           /* wait till GO changes its interface to p2p device */
           hddLog(VOS_TRACE_LEVEL_INFO,
                  FL("Del_bss called, avoid apps suspend"));
           return FALSE;
-     }
+
 }
 /* Decide whether to allow/not the apps power collapse. 
  * Allow apps power collapse if we are in connected state.

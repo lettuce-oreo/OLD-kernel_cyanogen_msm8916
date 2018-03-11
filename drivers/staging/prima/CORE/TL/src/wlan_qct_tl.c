@@ -1078,7 +1078,7 @@ WLANTL_Close
 void
 WLANTL_ConfigureSwFrameTXXlationForAll
 (
-  v_PVOID_t pvosGCtx,
+  v_PVOID_t pvosGCtx, 
   v_BOOL_t enableFrameXlation
 )
 {
@@ -1161,12 +1161,12 @@ WLANTL_ConfigureSwFrameTXXlationForAll
 
 ============================================================================*/
 
-VOS_STATUS
+VOS_STATUS 
 WLANTL_StartForwarding
 (
   v_U8_t ucSTAId,
-  v_U8_t ucUcastSig,
-  v_U8_t ucBcastSig
+  v_U8_t ucUcastSig, 
+  v_U8_t ucBcastSig 
 )
 {
   vos_msg_t      sMessage;

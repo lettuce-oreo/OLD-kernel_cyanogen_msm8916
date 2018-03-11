@@ -3766,7 +3766,6 @@ typedef struct
    v_BOOL_t                    sendMgmtPktViaWQ5;
    v_BOOL_t                    sap_probe_resp_offload;
    v_BOOL_t                    disable_scan_during_sco;
-   uint8_t                     enable_rtt_support;
    v_BOOL_t                    sap_internal_restart;
 #ifdef SAP_AUTH_OFFLOAD
    bool                        enable_sap_auth_offload;
@@ -3778,6 +3777,7 @@ typedef struct
    uint32_t                    sta_auth_retries_for_code17;
    uint32_t                    trigger_nullframe_before_hb;
    bool                        force_scc_with_ecsa;
+   uint8_t                     enable_rtt_support;
    uint32_t                    sta_sap_scc_on_dfs_chan;
    uint8_t                     enable_aggr_btc_sco_oui[9];
    uint8_t                     num_buff_aggr_btc_sco;
