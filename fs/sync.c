@@ -87,6 +87,11 @@ static void sync_fs_one_sb(struct super_block *sb, void *arg)
 		sb->s_op->sync_fs(sb, *(int *)arg);
 }
 
+void sync_filesystems(int wait)
+{
+	iterate_supers(sync_fs_one_sb, &wait);
+}
+
 static void fdatawrite_one_bdev(struct block_device *bdev, void *arg)
 {
 	filemap_fdatawrite(bdev->bd_inode->i_mapping);
