@@ -1,5 +1,3 @@
-language: C
-
 # Install all dependencies
 before_install:
  - sudo apt-get -qq update
@@ -25,6 +23,3 @@ script:
 
 after_success:
  - make O=out clean
-
-after_script
- - make O=out mrproper
