@@ -565,7 +565,7 @@ static void cpufreq_interactive_timer(unsigned long data)
 				new_freq = this_hispeed_freq;
 		}
 	} else {
-		new_freq = choose_freq(ppol, loadadjfreq)
+		new_freq = choose_freq(ppol, loadadjfreq);
 		if (new_freq > this_hispeed_freq &&
 				ppol->policy->cur < this_hispeed_freq)
 			new_freq = this_hispeed_freq;
@@ -1634,6 +1634,7 @@ static int cpufreq_governor_interactive(struct cpufreq_policy *policy,
 	struct cpufreq_interactive_policyinfo *ppol;
 	struct cpufreq_frequency_table *freq_table;
 	struct cpufreq_interactive_tunables *tunables;
+        unsigned long flags;
 	unsigned int anyboost;
 
 	if (have_governor_per_policy())
