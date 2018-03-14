@@ -3,11 +3,11 @@ language: C
 # Install all dependencies
 before_install:
  - sudo apt-get -qq update
- - sudo apt-get install -y ccache build-essential kernel-package libncurses5-dev bzip2 bc bison curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline6-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils libxml2-dev lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev
+ - sudo apt-get install -y libisl15 libc6 ccache build-essential kernel-package libncurses5-dev bzip2 bc bison curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline6-dev lib32z1-dev libesd0-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils libxml2-dev lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev
 
 # Clone Linaro 7.2 arm64 toolchain
 install:
- - git clone https://github.com/arter97/linaro-64 toolchain
+ - git clone -b a53-7.x https://github.com/krasCGQ/aarch64-linux-android toolchain
 
 # Set up the environment
 before_script:
@@ -22,6 +22,3 @@ script:
  - make O=out mrproper
  - make O=out lineageos_lettuce_defconfig
  - make O=out -j8
-
-after_success:
- - make O=out clean
