@@ -172,6 +172,10 @@ extern unsigned long this_cpu_load(void);
 extern void sched_update_nr_prod(int cpu, long delta, bool inc);
 extern void sched_get_nr_running_avg(int *avg, int *iowait_avg, int *big_avg);
 
+#ifdef CONFIG_CPU_QUIET
+extern u64 nr_running_integral(unsigned int cpu);
+#endif
+
 extern void calc_global_load(unsigned long ticks);
 extern void update_cpu_load_nohz(void);
 
