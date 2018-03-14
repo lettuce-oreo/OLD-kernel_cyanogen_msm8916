@@ -18,6 +18,7 @@ before_script:
 
 # Rock'n'Roll !
 script:
+ - sudo apt-get install libisl15
  - make O=out clean
  - make O=out mrproper
  - make O=out lineageos_lettuce_defconfig
