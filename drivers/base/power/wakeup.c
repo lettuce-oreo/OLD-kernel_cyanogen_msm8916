@@ -41,7 +41,6 @@ static bool enable_timerfd_ws = true;
 module_param(enable_timerfd_ws, bool, 0644);
 static bool enable_netlink_ws = true;
 module_param(enable_netlink_ws, bool, 0644);
->>>>>>> a9f38f62ffa8... Add more  WakeLock Toggles with Optimizations
 
 
 #ifdef CONFIG_BOEFFLA_WL_BLOCKER
