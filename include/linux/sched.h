@@ -1811,8 +1811,6 @@ extern void sched_get_cpus_busy(struct sched_load *busy,
 extern void sched_set_io_is_busy(int val);
 int sched_update_freq_max_load(const cpumask_t *cpumask);
 #else
-static int sched_set_window(u64 window_start, unsigned int window_size);
-
 static inline int sched_update_freq_max_load(const cpumask_t *cpumask)
 {
 	return -EINVAL;

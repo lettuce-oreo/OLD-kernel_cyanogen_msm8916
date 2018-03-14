@@ -187,13 +187,6 @@ static u64 round_to_nw_start(u64 jif,
 	return ret;
 }
 
-static inline int set_window_helper(
-			struct cpufreq_interactive_tunables *tunables)
-{
-	return sched_set_window(round_to_nw_start(get_jiffies_64(), tunables),
-			 usecs_to_jiffies(tunables->timer_rate));
-}
-
 static void cpufreq_interactive_timer_resched(unsigned long cpu,
 					      bool slack_only)
 {
@@ -1112,7 +1105,6 @@ static ssize_t store_timer_rate(struct cpufreq_interactive_tunables *tunables,
 			t->prev_timer_rate = val_round;
 		}
 	}
-	set_window_helper(tunables);
 
 	return count;
 }
@@ -1260,7 +1252,6 @@ static int cpufreq_interactive_enable_sched_input(
 			}
 		}
 	} else {
-		rc = set_window_helper(tunables);
 		if (rc) {
 			pr_err("%s: Failed to set sched window\n", __func__);
 			set_window_count--;
